@@ -3,18 +3,17 @@ const connectDB = require('./config/db');
 
 const dotenv = require('dotenv').config();
 
+// Import Routes
+const userRoutes = require('./routes/userRoutes');
+
 // Express App
 const app = express();
 
 //Connect to DB
 connectDB();
 
-// Middleware to handle requests
-app.use('/', (req, res) => {
-  res.status(200).json({
-    message: 'OK from Server - Sanity Check',
-  });
-});
+// Routes which will handle requests
+app.use('/api/users', userRoutes);
 
 // Set PORT
 const PORT = process.env.PORT || 3500;
