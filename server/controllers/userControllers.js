@@ -3,8 +3,17 @@ const User = require('../models/User');
 // Get all users
 const getAllUsers = async (req, res, next) => {
   try {
+    const users = await User.find();
+    
+    if(users.length <= 1) {
+      const error = new Error('Resource Not Found');
+      error.status = 404;
+      return next(error);
+    }
+
     res.status(200).json({
-      message: 'Get all users',
+      count: users.length,
+      data: users,
     });
   } catch (err) {
     console.log(`Server Error: ${err.message}`);
