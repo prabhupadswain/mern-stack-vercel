@@ -15,8 +15,22 @@ const getAllUsers = async (req, res, next) => {
 // Create an user
 const createUser = async (req, res, next) => {
   try {
+    // Extract data from request body
+    const { username, age, salaried } = req.body;
+
+    // Construct a new user based on schema
+    let user = new User({
+      username,
+      age,
+      salaried,
+    });
+
+    // Save to DB
+    await user.save();
+
+    // Sends a response to client
     res.status(201).json({
-      message: 'Create an user',
+      message: `New user ${username} is created`,
     });
   } catch (err) {
     console.log(`Server Error: ${err.message}`);

@@ -8,6 +8,9 @@ const userRoutes = require('./routes/userRoutes');
 // Express App
 const app = express();
 
+// Parsing requests body
+app.use(express.json());
+
 //Connect to DB
 connectDB();
 
