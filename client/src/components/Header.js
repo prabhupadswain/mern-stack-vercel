@@ -1,7 +1,13 @@
 import React from 'react';
 
 const Header = () => {
-  return <h1 className='display-2 mb-5'>User Application</h1>;
+  return (
+    <header>
+      <h1 className='display-2 mb-5' style={{ textAlign: 'center' }}>
+        User DBMS Application
+      </h1>
+    </header>
+  );
 };
 
 export default Header;
