@@ -1,8 +1,8 @@
-import React from 'react';
+import React, { Fragment } from 'react';
 
 const UserForm = () => {
   return (
-    <section className='mb-3'>
+    <Fragment>
       <form>
         <div className='row mb-3'>
           <label htmlFor='userName' className='col-sm-2 col-form-label'>
@@ -51,9 +51,15 @@ const UserForm = () => {
             </div>
           </div>
         </fieldset>
-        <button type="submit" class="btn btn-primary">Sign in</button>
+        <div className='row mb-3'>
+          <div className='col-sm-4'>
+            <button type='submit' class='btn btn-success'>
+              Create a new user
+            </button>
+          </div>
+        </div>
       </form>
-    </section>
+    </Fragment>
   );
 };
 

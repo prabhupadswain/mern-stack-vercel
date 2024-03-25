@@ -8,7 +8,7 @@ const Home = () => {
       </h2>
       <p className='lead'>
         This is our homepage section. <br />
-        Use below buttons to navigate to either create a new user or display
+        Use above navigation buttons to navigate to either add a new user to our database or display
         list of users present in our database. <br />
       </p>
     </section>
