@@ -1,9 +1,12 @@
 const express = require('express');
 const connectDB = require('./config/db');
-const dotenv = require('dotenv').config();
+const dotenv = require('dotenv');
 
 // Import Routes
 const userRoutes = require('./routes/userRoutes');
+
+// Use variables in environment file
+dotenv.config();
 
 // Express App
 const app = express();
@@ -27,11 +30,12 @@ app.use((req, res, next) => {
 app.use((error, req, res, next) => {
   if (error.status) {
     return res.status(error.status).json({
+      success: false,
       message: error.message,
     });
   }
 
-  res.status(500).json({ message: 'Internal Server Error' });
+  res.status(500).json({ success: false, message: 'Internal Server Error' });
 });
 
 // Set PORT
