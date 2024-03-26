@@ -1,9 +1,14 @@
-import React, { Fragment, useContext } from 'react';
+import React, { Fragment, useContext, useEffect } from 'react';
 import { UserContext } from '../context/user/UserState';
 import User from './User';
 
 const UserList = () => {
-  const { users } = useContext(UserContext);
+  const { users, getUsers } = useContext(UserContext);
+
+  useEffect(() => {
+    getUsers();
+    // eslint-disable-next-line
+  }, []);
 
   return (
     <Fragment>
