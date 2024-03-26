@@ -4,8 +4,7 @@ import User from './User';
 
 const UserList = () => {
   const { users } = useContext(UserContext);
-  console.log(users);
-
+  
   return (
     <Fragment>
       <table className='table table-danger'>
