@@ -4,10 +4,10 @@ import User from './User';
 
 const UserList = () => {
   const { users } = useContext(UserContext);
-  
+
   return (
     <Fragment>
-      <table className='table table-danger'>
+      <table className='table table-danger table-striped'>
         <thead>
           <tr>
             <th scope='col'>#</th>
@@ -17,8 +17,8 @@ const UserList = () => {
           </tr>
         </thead>
         <tbody>
-          {users.map((user) => (
-            <User key={user.id} singleUser={user} />
+          {users.map((user, index) => (
+            <User key={index + 1} id={index + 1} singleUser={user} />
           ))}
         </tbody>
       </table>

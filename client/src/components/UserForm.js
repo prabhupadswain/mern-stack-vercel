@@ -1,4 +1,5 @@
-import React, { useState } from 'react';
+import React, { useState, useContext } from 'react';
+import { UserContext } from '../context/user/UserState';
 
 const UserForm = () => {
   const [user, setUser] = useState({
@@ -11,9 +12,10 @@ const UserForm = () => {
     setUser({ ...user, [e.target.name]: e.target.value });
   };
 
+  const { addUser } = useContext(UserContext);
+
   const submitHandler = (e) => {
     e.preventDefault();
-    // console.log(user);
 
     const { username, age, salaried } = user;
 
@@ -23,7 +25,7 @@ const UserForm = () => {
       salaried: salaried === 'yes' ? true : false,
     };
 
-    // console.log(newUser);
+    addUser(newUser);
 
     setUser({
       username: '',

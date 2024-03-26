@@ -1,12 +1,12 @@
 import React from 'react';
 
-const User = ({ singleUser }) => {
+const User = ({ id, singleUser }) => {
   return (
     <tr>
-      <th scope='row'>{singleUser.id}</th>
+      <th scope='row'>{id}</th>
       <td>{singleUser.username}</td>
       <td>{singleUser.age}</td>
-      <td>{singleUser.salaried ? 'YES': 'NO'}</td>
+      <td>{singleUser.salaried ? 'YES' : 'NO'}</td>
     </tr>
   );
 };
