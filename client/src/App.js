@@ -12,19 +12,24 @@ import Home from './pages/Home';
 import CreateUser from './pages/CreateUser';
 import DisplayUser from './pages/DisplayUser';
 
+// Import Context
+import { UserProvider } from './context/user/UserState';
+
 function App() {
   return (
-    <BrowserRouter>
-      <div className='container'>
-        <Header />
-        <NavigationBar />
-        <Routes>
-          <Route path='/' element={<Home />} />
-          <Route path='/create-user' element={<CreateUser />} />
-          <Route path='/display-user' element={<DisplayUser />} />
-        </Routes>
-      </div>
-    </BrowserRouter>
+    <UserProvider>
+      <BrowserRouter>
+        <div className='container'>
+          <Header />
+          <NavigationBar />
+          <Routes>
+            <Route path='/' element={<Home />} />
+            <Route path='/create-user' element={<CreateUser />} />
+            <Route path='/display-user' element={<DisplayUser />} />
+          </Routes>
+        </div>
+      </BrowserRouter>
+    </UserProvider>
   );
 }
 
