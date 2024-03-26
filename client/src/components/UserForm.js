@@ -13,7 +13,7 @@ const UserForm = () => {
 
   const submitHandler = (e) => {
     e.preventDefault();
-    console.log(user);
+    // console.log(user);
 
     const { username, age, salaried } = user;
 
@@ -23,7 +23,7 @@ const UserForm = () => {
       salaried: salaried === 'yes' ? true : false,
     };
 
-    console.log(newUser);
+    // console.log(newUser);
 
     setUser({
       username: '',
