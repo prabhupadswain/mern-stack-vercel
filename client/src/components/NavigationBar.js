@@ -3,7 +3,7 @@ import { Link } from 'react-router-dom';
 
 const NavigationBar = () => {
   return (
-    <div className='row mb-4'>
+    <nav className='row mb-4'>
       <div className='col-4'>
         <Link to='/' className='btn btn-primary'>
           Click here to go to Home Page
@@ -19,7 +19,7 @@ const NavigationBar = () => {
           Click here to go to display all users page
         </Link>
       </div>
-    </div>
+    </nav>
   );
 };
 

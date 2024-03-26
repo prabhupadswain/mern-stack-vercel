@@ -1,7 +1,7 @@
 import './App.css';
 import 'bootstrap/dist/css/bootstrap.min.css';
 
-import { Routes, Route } from 'react-router-dom';
+import { BrowserRouter, Routes, Route } from 'react-router-dom';
 
 // Import Components
 import Header from './components/Header';
@@ -14,21 +14,17 @@ import DisplayUser from './pages/DisplayUser';
 
 function App() {
   return (
-    <div className='container'>
-      <Header />
-      <NavigationBar />
-
-      <Routes>
-        <Route path='/' element={<Home />} />
-        <Route path='/create-user' element={<CreateUser />} />
-        <Route path='/display-user' element={<DisplayUser />} />
-      </Routes>
-      <main>
-        {/* <Home />
-        <UserForm />
-        <UserList /> */}
-      </main>
-    </div>
+    <BrowserRouter>
+      <div className='container'>
+        <Header />
+        <NavigationBar />
+        <Routes>
+          <Route path='/' element={<Home />} />
+          <Route path='/create-user' element={<CreateUser />} />
+          <Route path='/display-user' element={<DisplayUser />} />
+        </Routes>
+      </div>
+    </BrowserRouter>
   );
 }
 

@@ -2,6 +2,7 @@ import React from 'react';
 
 const Home = () => {
   return (
+    <main>
     <section className='mb-3'>
       <h2 className='fw-normal'>
         Welcome to User Database Management System software !!!
@@ -12,6 +13,7 @@ const Home = () => {
         list of users present in our database. <br />
       </p>
     </section>
+    </main>
   );
 };
 
