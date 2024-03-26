@@ -1,6 +1,7 @@
 const express = require('express');
 const connectDB = require('./config/db');
 const dotenv = require('dotenv');
+const cors = require('cors');
 
 // Import Routes
 const userRoutes = require('./routes/userRoutes');
@@ -13,6 +14,9 @@ const app = express();
 
 // Parsing requests body
 app.use(express.json());
+
+// CORS Policy
+app.use(cors());
 
 //Connect to DB
 connectDB();
