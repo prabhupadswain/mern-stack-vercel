@@ -17,6 +17,7 @@ export const UserProvider = ({ children }) => {
   const [state, dispatch] = useReducer(UserReducer, initialState);
 
   // Actions
+  // Action - Get all users
   async function getUsers() {
     try {
       const res = await axios.get('/api/users');
@@ -26,17 +27,31 @@ export const UserProvider = ({ children }) => {
       });
     } catch (error) {
       dispatch({
-        type: 'GET_USERS_ERROR',
+        type: 'USER_ERROR',
         payload: error.res.data.message,
       });
     }
   }
 
-  function addUser(user) {
-    dispatch({
-      type: 'ADD_USER',
-      payload: user,
-    });
+  // Action - Create a new user
+  async function addUser(user) {
+    const config = {
+      headers: {
+        'Content-Type': 'application/json',
+      },
+    };
+    try {
+      const res = await axios.post('/api/users', user, config);
+      dispatch({
+        type: 'ADD_USER',
+        payload: res.data.data,
+      });
+    } catch (error) {
+      dispatch({
+        type: 'USER_ERROR',
+        payload: error.res.data.message,
+      });
+    }
   }
 
   return (
