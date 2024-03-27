@@ -1,3 +1,6 @@
+const path = require('path');
+
+// Dependencies
 const express = require('express');
 const connectDB = require('./config/db');
 const dotenv = require('dotenv');
@@ -23,6 +26,28 @@ connectDB();
 
 // Routes which will handle requests
 app.use('/api/users', userRoutes);
+
+// Directory & Path
+
+/*
+For Testing/Checking Directory, File, Path
+console.log(path.resolve(__dirname, '..', 'client','build'));
+console.log(path.join((path.resolve(__dirname, '..')),( "./client")));
+*/
+
+if (process.env.NODE_ENV === 'production') {
+  app.use(express.static(path.resolve(__dirname, '..', 'client', 'build')));
+
+  app.get('*', (req, res, next) => {
+    try {
+      res.sendFile(
+        path.resolve(__dirname, '..', 'client', 'build', 'index.html')
+      );
+    } catch (err) {
+      next(err);
+    }
+  });
+}
 
 // Global Error middleware
 app.use((req, res, next) => {
